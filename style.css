@@ -1,0 +1,64 @@
+h1 {
+  font-family: "DM Serif Display", serif;
+  color: #ffa500;
+  text-align: left;
+  font-size: 90px;
+  margin: 20px 0 40px;
+}
+.weather-icon {
+  color: #00bfff;
+  font-size: 130px;
+  transition: all 200ms ease-in-out;
+  margin: 20px 0;
+}
+.weather-icon:hover {
+  font-size: 150px;
+  color: #5d3fd3;
+}
+.weather-icon-down {
+  font-size: 70px;
+  color: #00bfff;
+  margin: 20px;
+  transition: all 200ms ease-in-out;
+}
+.weather-icon-down:hover {
+  font-size: 100px;
+  color: #5d3fd3;
+}
+.weather-today {
+  margin: 30px;
+  font-weight: bold;
+  font-size: 25px;
+}
+.city-search {
+  margin: 40px;
+}
+.day {
+  color: #5d3fd3;
+  font-weight: bold;
+  font-size: 30px;
+  transition: all 200ms ease-in-out;
+}
+.day:hover {
+  color: #00bfff;
+  font-weight: bold;
+  font-size: 35px;
+}
+.temperature {
+  font-weight: bold;
+  font-size: 24px;
+  margin: 20px;
+}
+#gps-button {
+  margin: 10px 20px;
+  padding: 10px 30px 10px 30px;
+  color: #fff;
+  background-color: #3cb371;
+  box-shadow: 10px;
+  border-radius: 6%;
+  border: none;
+}
+#gps-button:hover {
+  background-color: #007f66;
+  transition: ease-in-out 200ms;
+}
