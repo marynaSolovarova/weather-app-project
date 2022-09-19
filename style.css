@@ -62,3 +62,6 @@ h1 {
   background-color: #007f66;
   transition: ease-in-out 200ms;
 }
+.link {
+  font-weight: bold;
+}
