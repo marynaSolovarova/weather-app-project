@@ -51,6 +51,7 @@ let farenheitTemperature = document.querySelector("#farenheit");
 celsiusTemperature.addEventListener("click", celsiusDisplay);
 farenheitTemperature.addEventListener("click", farenheitDisplay);
 function showTemp(response) {
+  console.log(response.data);
   let tempElement = document.querySelector("#temperature");
   let temp = Math.round(response.data.main.temp);
   tempElement.innerHTML = temp;
@@ -63,7 +64,13 @@ function showTemp(response) {
     response.data.weather[0].main;
   let currentDayAndTime = document.querySelector("#today");
   currentDayAndTime.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
+////class="fa-solid fa-cloud-sun weather-icon"
 function showPosition(position) {
   navigator.geolocation.getCurrentPosition(showPosition);
   let longitude = position.coords.longitude;
