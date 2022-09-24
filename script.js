@@ -15,7 +15,8 @@ search("New York");
 let submitButton = document.querySelector("#search-engine");
 submitButton.addEventListener("submit", displayCity);
 
-function formatDate(date) {
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -34,11 +35,8 @@ function formatDate(date) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let currentDayAndTime = document.querySelector("#today");
-  currentDayAndTime.innerHTML = `${currentDay} ${hours}:${minutes}`;
+  return `${currentDay} ${hours}:${minutes}`;
 }
-let currentTime = new Date();
-formatDate(currentTime);
 
 function celsiusDisplay(event) {
   let temp = document.querySelector("#temperature");
@@ -63,6 +61,8 @@ function showTemp(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+  let currentDayAndTime = document.querySelector("#today");
+  currentDayAndTime.innerHTML = formatDate(response.data.dt * 1000);
 }
 function showPosition(position) {
   navigator.geolocation.getCurrentPosition(showPosition);
