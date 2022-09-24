@@ -57,7 +57,13 @@ h1 {
 .col {
   width: 60px;
 }
-
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
 #gps-button {
   margin: 10px 20px;
   padding: 10px 30px 10px 30px;

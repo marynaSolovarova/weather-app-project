@@ -39,21 +39,29 @@ function formatDate(timestamp) {
 }
 
 function celsiusDisplay(event) {
+  event.preventDefault();
+  celsiusTemperature.classList.add("active");
+  farenheitTemperature.classList.remove("active");
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = "17°";
+  temp.innerHTML = Math.round(celsiusTemp);
 }
 function farenheitDisplay(event) {
+  event.preventDefault();
+  celsiusTemperature.classList.remove("active");
+  farenheitTemperature.classList.add("active");
   let temp = document.querySelector("#temperature");
-  temp.innerHTML = "66°";
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemp);
 }
 let celsiusTemperature = document.querySelector("#celsius");
 let farenheitTemperature = document.querySelector("#farenheit");
 celsiusTemperature.addEventListener("click", celsiusDisplay);
 farenheitTemperature.addEventListener("click", farenheitDisplay);
+let celsiusTemp = null;
 function showTemp(response) {
-  console.log(response.data);
   let tempElement = document.querySelector("#temperature");
-  let temp = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  let temp = Math.round(celsiusTemp);
   tempElement.innerHTML = temp;
   document.querySelector("#city-display").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
@@ -70,7 +78,7 @@ function showTemp(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
 }
-////class="fa-solid fa-cloud-sun weather-icon"
+
 function showPosition(position) {
   navigator.geolocation.getCurrentPosition(showPosition);
   let longitude = position.coords.longitude;
