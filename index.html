@@ -26,87 +26,91 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-3">
-          <i class="fa-solid fa-cloud-sun weather-icon"></i>
-        </div>
-        <div class="col-3">
-          <div class="weather-today">
-            <span id="temperature"></span> <a href="#" id="celsius">°C</a>/<a
-              href="#"
-              id="farenheit"
-              >F
-            </a>
-            <span id="city-display"></span>
-            <br />
-            <span id="today"></span>
-            <br />
-            <span id="description"></span>
-            <br />
-            Humidity: <span id="humidity"></span>%
-            <br />
-            Wind: <span id="wind"></span>km/hour
+      <div class="weather-app">
+        <div class="row">
+          <div class="col-3">
+            <i class="fa-solid fa-cloud-sun weather-icon"></i>
+          </div>
+          <div class="col-3">
+            <div class="weather-today">
+              <div class="main-weather">
+                <span id="city-display"></span>
+
+                <span id="temperature"></span>
+                <a href="#" id="celsius">°C</a>/<a href="#" id="farenheit"
+                  >F
+                </a>
+              </div>
+              <span id="today"></span>
+              <br />
+              <span id="description"></span>
+              <br />
+              Humidity: <span id="humidity"></span>%
+              <br />
+              Wind: <span id="wind"></span>km/hour
+            </div>
+          </div>
+          <div class="col-6">
+            <form class="city-search" id="search-engine">
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  placeholder="Enter city"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+              <button id="gps-button" class="btn btn-primary">GPS</button>
+            </form>
           </div>
         </div>
-        <div class="col-6">
-          <form class="city-search" id="search-engine">
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                placeholder="Enter city"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">Search</button>
-            <button id="gps-button" class="btn btn-primary">GPS</button>
-          </form>
+        <h1>Weekly forecast</h1>
+        <div class="row">
+          <div class="col">
+            <div class="day">Today</div>
+            <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
+            <div class="temperature">18° / 27°</div>
+          </div>
+          <div class="col">
+            <div class="day">1 August</div>
+            <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
+            <div class="temperature">19° / 28°</div>
+          </div>
+          <div class="col">
+            <div class="day">2 August</div>
+            <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
+            <div class="temperature">20° / 29°</div>
+          </div>
+          <div class="col">
+            <div class="day">3 August</div>
+            <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
+            <div class="temperature">19° / 27°</div>
+          </div>
+          <div class="col">
+            <div class="day">4 August</div>
+            <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
+            <div class="temperature">19° / 27°</div>
+          </div>
+          <div class="col">
+            <div class="day">5 August</div>
+            <i class="fa-solid fa-cloud-rain weather-icon-down"></i>
+            <div class="temperature">14° / 21°</div>
+          </div>
         </div>
-      </div>
-      <h1>Weekly forecast</h1>
-      <div class="row">
-        <div class="col">
-          <div class="day">Today</div>
-          <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
-          <div class="temperature">18° / 27°</div>
-        </div>
-        <div class="col">
-          <div class="day">1 August</div>
-          <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
-          <div class="temperature">19° / 28°</div>
-        </div>
-        <div class="col">
-          <div class="day">2 August</div>
-          <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
-          <div class="temperature">20° / 29°</div>
-        </div>
-        <div class="col">
-          <div class="day">3 August</div>
-          <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
-          <div class="temperature">19° / 27°</div>
-        </div>
-        <div class="col">
-          <div class="day">4 August</div>
-          <i class="fa-solid fa-cloud-sun weather-icon-down"></i>
-          <div class="temperature">19° / 27°</div>
-        </div>
-        <div class="col">
-          <div class="day">5 August</div>
-          <i class="fa-solid fa-cloud-rain weather-icon-down"></i>
-          <div class="temperature">14° / 21°</div>
-        </div>
-      </div>
+        <br />
 
-      <small>
-        <a
-          class="link"
-          href="https://github.com/marynaSolovarova/weather-app-project"
-          target="_blank"
-          >Open-source code</a
-        >
-        <span class="link">by Maryna Solovarova</span>
-      </small>
+        <small>
+          <a
+            class="link"
+            href="https://github.com/marynaSolovarova/weather-app-project"
+            target="_blank"
+            >Open-source code</a
+          >
+          <span class="link">by Maryna Solovarova</span>
+        </small>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
