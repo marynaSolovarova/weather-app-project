@@ -58,6 +58,14 @@ let farenheitTemperature = document.querySelector("#farenheit");
 celsiusTemperature.addEventListener("click", celsiusDisplay);
 farenheitTemperature.addEventListener("click", farenheitDisplay);
 let celsiusTemp = null;
+
+function getForecast(coordinates) {
+  let apiKey = "e996ce2294c18887fdd7702f5f183cb1";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function showTemp(response) {
   let tempElement = document.querySelector("#temperature");
   celsiusTemp = response.data.main.temp;
@@ -77,6 +85,8 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -92,3 +102,25 @@ function showPosition(position) {
 
 let gpsButton = document.querySelector("#gps-button");
 gpsButton.addEventListener("click", showPosition);
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-3">
+          <div class="day">${day}</div>
+          <img  class="icon-down"
+            src="http://openweathermap.org/img/wn/50d@2x.png"
+           
+          />
+
+          <div class="temperature">18° / 27°</div>
+        </div>`;
+  });
+  forecastHTML = forecastHTML + `</div >`;
+  forecastElement.innerHTML = forecastHTML;
+}
+//<i class="fa-solid fa-cloud-sun weather-icon-down"></i>
