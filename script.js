@@ -131,11 +131,10 @@ function displayForecast(response) {
 
           <div class="temperature">${Math.round(
             forecastDay.temp.min
-          )}° / ${Math.round(forecastDay.temp.max)}°</div>
+          )}°C / ${Math.round(forecastDay.temp.max)}°C</div>
         </div>`;
     }
   });
   forecastHTML = forecastHTML + `</div >`;
   forecastElement.innerHTML = forecastHTML;
 }
-//<i class="fa-solid fa-cloud-sun weather-icon-down"></i>
