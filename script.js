@@ -37,11 +37,17 @@ function formatDate(timestamp) {
   }
   return `${currentDay} ${hours}:${minutes}`;
 }
+//added function to fix the bug:
+function celsiusToActive() {
+  celsiusTemperature.classList.add("active");
+  farenheitTemperature.classList.remove("active");
+}
 
 function celsiusDisplay(event) {
   event.preventDefault();
-  celsiusTemperature.classList.add("active");
-  farenheitTemperature.classList.remove("active");
+  celsiusToActive(); //bug fixing: added new function to run the same code as for clicking C when looking for city with active F
+  // celsiusTemperature.classList.add("active");
+  //farenheitTemperature.classList.remove("active");
   let temp = document.querySelector("#temperature");
   temp.innerHTML = Math.round(celsiusTemp);
 }
@@ -92,7 +98,9 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-
+  celsiusToActive(); //bug fixing: added new function to run the same code as for clicking C when looking for city with active F
+  // celsiusTemperature.classList.add("active");
+  //farenheitTemperature.classList.remove("active");
   getForecast(response.data.coord);
 }
 
